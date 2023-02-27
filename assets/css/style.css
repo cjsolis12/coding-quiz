@@ -34,6 +34,13 @@ nav > div {
     border-radius: 8px;
     box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
-    margin: 70px;
     padding: 20px;
+    text-align: center;
 }
+
+/* Answer Choices */
+ .answers li{
+    border: 1px solid #eceff1;
+    border-radius: 5px;
+    list-style-position: inside;
+ }
