@@ -3,5 +3,23 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* Whole screen */
+.whole-screen{
+    padding: 10px;
+}
+
+/* Top Navbar */
+nav {
+    display: flex;
+    justify-content: space-between;
+    /* border: 1px solid red; */
+    margin: 5px 15px;
+    padding: 10px;
+}
+nav > div {
+    padding: 10px;
+    font-size: 20px;
+}
