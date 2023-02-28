@@ -3,8 +3,8 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-    /* border: 1px solid red; */
+    font-family: "Poppins", sans-serif;
+    letter-spacing: .5px;
 }
 
 /* Whole screen */
@@ -50,4 +50,18 @@ nav > div {
     background-color: aliceblue;
     box-shadow: rgba(60, 64, 67, 0.3) 0 1px 1px 0,
     rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
+ }
+
+ /* Start Button */
+ #start{
+    color:  rgb(15, 15, 87);
+    display: block;
+    margin: 0 auto;
+    font-size: 1.2em;
+    padding: .5em 2em;
+    border: 2px solid rgb(15, 15, 87);
+    background-color: #ffffff;
+    border-radius: 2em;
+    text-align: center;
+    background-color: aliceblue;
  }
