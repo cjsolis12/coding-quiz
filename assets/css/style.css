@@ -39,10 +39,15 @@ nav > div {
 }
 
 /* Answer Choices */
- .answers li{
+#answer-choices{
+    visibility: hidden ;
+}
+
+.answers{
+    display: flex;
+    flex-direction: column ;
     border: 1px solid #eceff1;
     border-radius: 5px;
-    list-style-position: inside;
     margin: 20px 10px;
     text-align: left;
     padding: 15px;
