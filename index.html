@@ -1,36 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="assets/css/style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/style.css" />
     <title>Coding Quiz</title>
-</head>
-<body>
-    
-        <!-- top row for High score and timer -->
-        <nav>
-            <div id="High Scores">View High Scores </div>
-            <div id="nav-timer">
-                <h4>Timer</h4>
-                <p id="timer"></p>
-            </div>
-        </nav>
-        <!-- Main question and answer section -->
-        <div id="main-content">
-            <main class="question-card">
-                <h2 id="question"></h2>
-                <p id="start-section">Try to answer the following code-related questions within the time limit. Keep in mind incorrect answers will penalize your time by 5 seconds! Click Start to begin.</p>
-              <div id="answer-choices">
-                <button class="answers">Answer 1</button>
-                <button class="answers">Answer 1</button>
-                <button class="answers">Answer 1</button>
-                <button class="answers">Answer 1</button>
-              </div>
-            </main>
-            <button id="start">Start</button>
+  </head>
+  <body>
+    <!-- top row for High score and timer -->
+    <nav>
+      <div id="High Scores">View High Scores</div>
+      <div id="nav-timer">
+        <h4>Timer</h4>
+        <p id="timer"></p>
+      </div>
+    </nav>
+    <!-- Main question and answer section -->
+
+    <div id="main-content">
+      <!-- Start Page -->
+      <main class="question-card">
+        <div id="start-page">
+          <h2 id="question"></h2>
+          <p id="start-section">
+            Try to answer the following code-related questions within the time limit. Keep in mind incorrect answers will penalize your time by 5 seconds! Click Start to begin.
+          </p>
         </div>
+        <!-- Question and answers when button is clicked -->
+        <div id="answer-choices">
+          <h3>Question</h3>
+          <button class="answers">Answer 1</button>
+          <button class="answers">Answer 1</button>
+          <button class="answers">Answer 1</button>
+          <button class="answers">Answer 1</button>
+        </div>
+      </main>
+      <button id="start">Start</button>
+    </div>
     <script src="assets/js/index.js"></script>
-</body>
+  </body>
 </html>
