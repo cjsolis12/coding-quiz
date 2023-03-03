@@ -3,6 +3,7 @@ var timerContainer = document.getElementById('timer')
 var startPage = document.getElementById('start-page')
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
+var correctIncorrectAnswers = document.getElementById('result')
 
 var nextQuestion = 0;
 // Start timer at
@@ -48,33 +49,35 @@ function createAnswerChoices (questionIndex){
         title.appendChild(text1)
         qAndA.appendChild(title)
         
-        // Looping over each choices index and adding them to buttons
+// Looping over each choices array and adding them to buttons
         for(let i = 0; i < currentChoices.length; i++){
-            let answerCard = document.createElement('button');
+            let answerBtns = document.createElement('button');
+            answerBtns.id = "answer-buttons"
             let text2 = document.createTextNode(currentChoices[i]);
-            answerCard.appendChild(text2)
+            answerBtns.appendChild(text2)
 
-            answerCard.addEventListener('click', function (event){
+            answerBtns.addEventListener('click', function (event){
                 console.log(event.target.innerHTML)
-                document.getElementById("result").textContent = event.target.innerHTML === currentQuestion.answer
-                qAndA.innerHTML = ""
+                if(event.target.innerHTML === currentQuestion.answer){
+                    answerBtns.style.background = "#c6f7ba"
+                 }else{
+                    answerBtns.style.background = "#f2aa9b"
+                 }
                 nextQuestion++;
-                // check true and false answers
+                
             })
-            qAndA.appendChild(answerCard)
+            qAndA.appendChild(answerBtns)
         }
-    //  })
  }
 
 // Timer function
 var timer = function (){
     var timeInterval = setInterval( () => {
         timerContainer.textContent = count--;
-        if(count % 10 === 0){
+        // if(count % 10 === 0){
             createAnswerChoices(nextQuestion);
             nextQuestion++;
-        }
-        
+        // }
         if(count < 0){
             clearInterval(timeInterval)
         }

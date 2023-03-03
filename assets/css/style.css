@@ -48,7 +48,7 @@ nav > div {
 }
 
  /* Start Button */
- #start{
+ #start, #next-btn{
     color:  rgb(15, 15, 87);
     display: block;
     margin: 30px auto;
@@ -58,4 +58,20 @@ nav > div {
     background-color: #ffffff;
     border-radius: 2em;
     background-color: aliceblue;
+ }
+
+ #questionItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+ }
+ #answer-buttons{
+    color:  rgb(15, 15, 87);
+    justify-content: flex-start;
+    margin: 10px 5px;
+    font-size: 1.2em;
+    padding: .5em;
+    border: 2px solid rgb(15, 15, 87);
+    background-color: rgb(235, 240, 243);
+    text-align: left;
  }
