@@ -47,13 +47,13 @@ function createQuestionAndAnswers (questionIndex){
         const currentChoices = currentQuestion.choices
         title.appendChild(text1)
         qAndA.appendChild(title)
-        console.log(currentQuestion)
 // Looping over each choices array and adding them to buttons
         for(let i = 0; i < currentChoices.length; i++){
             let answerBtns = document.createElement('button');
             answerBtns.id = "answer-buttons"
             let text2 = document.createTextNode(currentChoices[i]);
             answerBtns.appendChild(text2)
+            qAndA.appendChild(answerBtns);
 
             answerBtns.addEventListener('click', function (event){
                 console.log(event.target.innerHTML)
@@ -61,9 +61,11 @@ function createQuestionAndAnswers (questionIndex){
                     answerBtns.style.background = "#c6f7ba"
                  }else{
                     answerBtns.style.background = "#f2aa9b"
+                    timerContainer.textContent = count - 10;
                  }
+                 questionIndex++
+                 createQuestionAndAnswers(questionIndex)
             })
-            qAndA.appendChild(answerBtns);
         }
  }
 
