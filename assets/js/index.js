@@ -18,34 +18,27 @@ var questionsArray = [
     { 
         question: "Inside the HTML document, where do you place the JavaScript code? ",
         choices: ["in the <footer> element", "Inside the <script> tag", "inside the title tag", "You don't have to add any tag for Javascript" ],
-        // answer:this.choices[1], 
+        answer: "Inside the <script> tag", 
     },
     { 
         question: "Which of the following methods is used to access HTML elements using Javascript? ",
         choices: ["getDOM", "getHTML", "forEach()", "getElementbyId()" ],
-        // answer:this.choices[3], 
+        answer:"getElementbyId()", 
     },
     { 
         question: "Which function is used to serialize an object into a JSON string in Javascript?",
         choices: ["convert()", "parse()", "stringify()", "function()" ],
-        // answer:this.choices[2], 
+        answer:"stringify()", 
     },
     { 
         question: "How to stop an interval timer in Javascript? ",
         choices: ["clearInterval", "clearTimer", "intervalOver", "unsetInterval" ],
-        // answer:this.choices[0], 
+        answer:"clearInterval", 
     },
 
 ]
 
-
-
-var choice = 0; 
-// Looping over each object and storing it in questionAnswer
-
-
-
-
+// Looping over each object to make each Question Property an h3 and the choices arrat  button elements.
 function createAnswerChoices (questionIndex){
     // questionsArray.forEach((currentQuestion)=>{
         var currentQuestion = questionsArray[questionIndex]
@@ -78,12 +71,12 @@ var timer = function (){
         }
     }, 1000) }
 
-// Timer Starting when button is clicked
+// When Start button is clicked
 btn.addEventListener('click', function(){
     timer();
     startPage.style.display = "none";
     qAndA.style.visibility = "visible";
-    createAnswerChoices(1);
+    createAnswerChoices(3);
     btn.style.display = "none"
 })
 
