@@ -5,7 +5,6 @@ var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
 var correctIncorrectAnswers = document.getElementById('result')
 var nextButton = document.getElementById('next-btn')
-
 var nextQuestion = 0;
 // Start timer at
 var count = 60;
@@ -41,14 +40,14 @@ var questionsArray = [
 ]
 
 // Looping over each object to make each Question Property an h3.
-function createAnswerChoices (questionIndex){
+function createQuestionAndAnswers (questionIndex){
         var currentQuestion = questionsArray[questionIndex]
         let title = document.createElement('h3')
         let text1 = document.createTextNode(currentQuestion.question)
         const currentChoices = currentQuestion.choices
         title.appendChild(text1)
         qAndA.appendChild(title)
-        
+        console.log(currentQuestion)
 // Looping over each choices array and adding them to buttons
         for(let i = 0; i < currentChoices.length; i++){
             let answerBtns = document.createElement('button');
@@ -63,10 +62,8 @@ function createAnswerChoices (questionIndex){
                  }else{
                     answerBtns.style.background = "#f2aa9b"
                  }
-                nextQuestion++;
-                
             })
-            qAndA.appendChild(answerBtns)
+            qAndA.appendChild(answerBtns);
         }
  }
 
@@ -74,10 +71,6 @@ function createAnswerChoices (questionIndex){
 var timer = function (){
     var timeInterval = setInterval( () => {
         timerContainer.textContent = count--;
-        // if(count % 10 === 0){
-            createAnswerChoices(nextQuestion);
-            nextQuestion++;
-        // }
         if(count < 0){
             clearInterval(timeInterval)
         }
@@ -88,8 +81,8 @@ btn.addEventListener('click', function(){
     timer();
     startPage.style.display = "none";
     qAndA.style.visibility = "visible";
-    nextButton.style.visibility = "visible";
     btn.style.display = "none";
+    createQuestionAndAnswers(nextQuestion)
     console.log(nextQuestion)
 })
 
