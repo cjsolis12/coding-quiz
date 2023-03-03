@@ -4,6 +4,7 @@ var startPage = document.getElementById('start-page')
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
 var correctIncorrectAnswers = document.getElementById('result')
+var nextButton = document.getElementById('next-btn')
 
 var nextQuestion = 0;
 // Start timer at
@@ -41,7 +42,6 @@ var questionsArray = [
 
 // Looping over each object to make each Question Property an h3.
 function createAnswerChoices (questionIndex){
-        
         var currentQuestion = questionsArray[questionIndex]
         let title = document.createElement('h3')
         let text1 = document.createTextNode(currentQuestion.question)
@@ -88,7 +88,8 @@ btn.addEventListener('click', function(){
     timer();
     startPage.style.display = "none";
     qAndA.style.visibility = "visible";
-    btn.style.display = "none"
+    nextButton.style.visibility = "visible";
+    btn.style.display = "none";
     console.log(nextQuestion)
 })
 

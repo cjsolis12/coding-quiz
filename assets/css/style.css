@@ -39,7 +39,7 @@ nav > div {
 }
 
 /* Answer Choices */
-#answer-choices{
+#answer-choices, #next-btn{
     visibility: hidden ;
 }
 
