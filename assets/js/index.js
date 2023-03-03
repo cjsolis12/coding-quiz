@@ -4,7 +4,7 @@ var startPage = document.getElementById('start-page')
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
 
-
+var nextQuestion = 0;
 // Start timer at
 var count = 60;
 
@@ -38,16 +38,17 @@ var questionsArray = [
 
 ]
 
-// Looping over each object to make each Question Property an h3 and the choices arrat  button elements.
+// Looping over each object to make each Question Property an h3.
 function createAnswerChoices (questionIndex){
-    // questionsArray.forEach((currentQuestion)=>{
+        
         var currentQuestion = questionsArray[questionIndex]
         let title = document.createElement('h3')
         let text1 = document.createTextNode(currentQuestion.question)
         const currentChoices = currentQuestion.choices
         title.appendChild(text1)
         qAndA.appendChild(title)
-
+        
+        // Looping over each choices index and adding them to buttons
         for(let i = 0; i < currentChoices.length; i++){
             let answerCard = document.createElement('button');
             let text2 = document.createTextNode(currentChoices[i]);
@@ -55,7 +56,10 @@ function createAnswerChoices (questionIndex){
 
             answerCard.addEventListener('click', function (event){
                 console.log(event.target.innerHTML)
-                console.log(event.target.innerHTML=== currentQuestion.answer)
+                document.getElementById("result").textContent = event.target.innerHTML === currentQuestion.answer
+                qAndA.innerHTML = ""
+                nextQuestion++;
+                // check true and false answers
             })
             qAndA.appendChild(answerCard)
         }
@@ -66,6 +70,11 @@ function createAnswerChoices (questionIndex){
 var timer = function (){
     var timeInterval = setInterval( () => {
         timerContainer.textContent = count--;
+        if(count % 10 === 0){
+            createAnswerChoices(nextQuestion);
+            nextQuestion++;
+        }
+        
         if(count < 0){
             clearInterval(timeInterval)
         }
@@ -76,7 +85,7 @@ btn.addEventListener('click', function(){
     timer();
     startPage.style.display = "none";
     qAndA.style.visibility = "visible";
-    createAnswerChoices(3);
     btn.style.display = "none"
+    console.log(nextQuestion)
 })
 
