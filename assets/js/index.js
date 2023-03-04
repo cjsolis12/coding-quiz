@@ -6,6 +6,7 @@ var answersDisplayed= document.getElementById('choices')
 var correctIncorrectAnswers = document.getElementById('result')
 var nextButton = document.getElementById('next-btn')
 var nextQuestion = 0;
+var score = 0;
 // Start timer at
 var count = 60;
 
@@ -40,31 +41,42 @@ var questionsArray = [
 ]
 
 // Looping over each object to make each Question Property an h3.
-function createQuestionAndAnswers (questionIndex){
-        var currentQuestion = questionsArray[questionIndex]
+var endOfQuiz = false;
+var createQuestionsAndAnswers = function(questionIndex){
         let title = document.createElement('h3')
-        let text1 = document.createTextNode(currentQuestion.question)
+        
+        qAndA.style.visibility = "visible";
+        var currentQuestion = questionsArray[questionIndex]
+        let text1 = currentQuestion.question
         const currentChoices = currentQuestion.choices
-        title.appendChild(text1)
-        qAndA.appendChild(title)
+        title.textContent = text1
+        qAndA.textContent = currentQuestion.question;
 // Looping over each choices array and adding them to buttons
         for(let i = 0; i < currentChoices.length; i++){
             let answerBtns = document.createElement('button');
             answerBtns.id = "answer-buttons"
-            let text2 = document.createTextNode(currentChoices[i]);
-            answerBtns.appendChild(text2)
+            answerBtns.textContent = currentChoices[i]
             qAndA.appendChild(answerBtns);
 
             answerBtns.addEventListener('click', function (event){
                 console.log(event.target.innerHTML)
                 if(event.target.innerHTML === currentQuestion.answer){
                     answerBtns.style.background = "#c6f7ba"
+                    score += 20;
                  }else{
                     answerBtns.style.background = "#f2aa9b"
-                    timerContainer.textContent = count - 10;
+                    timerContainer.textContent = count - 5;
                  }
                  questionIndex++
-                 createQuestionAndAnswers(questionIndex)
+                 setTimeout(function(){
+                    if(questionsArray.length > questionIndex){
+                        createQuestionsAndAnswers(questionIndex)
+                    }else{
+                        qAndA.textContent = score;
+                        endOfQuiz = true;
+                        return
+                    }
+                 }, 500)
             })
         }
  }
@@ -73,7 +85,7 @@ function createQuestionAndAnswers (questionIndex){
 var timer = function (){
     var timeInterval = setInterval( () => {
         timerContainer.textContent = count--;
-        if(count < 0){
+        if(count < 0 || endOfQuiz){
             clearInterval(timeInterval)
         }
     }, 1000) }
@@ -82,9 +94,9 @@ var timer = function (){
 btn.addEventListener('click', function(){
     timer();
     startPage.style.display = "none";
-    qAndA.style.visibility = "visible";
+    // qAndA.style.visibility = "visible";
     btn.style.display = "none";
-    createQuestionAndAnswers(nextQuestion)
+    createQuestionsAndAnswers(nextQuestion)
     console.log(nextQuestion)
 })
 

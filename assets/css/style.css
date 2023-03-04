@@ -23,6 +23,15 @@ nav > div {
     padding: 10px;
     font-size: 20px;
 }
+#high-scores{
+    color:  rgb(15, 15, 87);
+    font-size: 12px;
+    padding: .5px 5px;
+    border: 1px solid rgb(15, 15, 87);
+    border-radius: 5px;
+    background-color: aliceblue;
+
+}
 /* Main-content (questions and choices) */
 #main-content{
     margin: 50px 100px;
