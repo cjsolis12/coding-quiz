@@ -1,6 +1,8 @@
 var btn = document.getElementById('start')
 var timerContainer = document.getElementById('timer')
-var startPage = document.getElementById('start-page')
+var startEndSection = document.getElementById('start-and-end')
+var cardTitle = document.getElementById('card-title')
+var contentText = document.getElementById('content-card-section')
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
 var correctIncorrectAnswers = document.getElementById('result')
@@ -72,9 +74,7 @@ var createQuestionsAndAnswers = function(questionIndex){
                     if(questionsArray.length > questionIndex){
                         createQuestionsAndAnswers(questionIndex)
                     }else{
-                        qAndA.textContent = score;
-                        endOfQuiz = true;
-                        return
+                        quizOver()
                     }
                  }, 500)
             })
@@ -93,10 +93,18 @@ var timer = function (){
 // When Start button is clicked
 btn.addEventListener('click', function(){
     timer();
-    startPage.style.display = "none";
-    // qAndA.style.visibility = "visible";
+    startEndSection.style.display = "none";
     btn.style.display = "none";
     createQuestionsAndAnswers(nextQuestion)
-    console.log(nextQuestion)
 })
 
+// End Result Page when Quiz is over or time is out
+var quizOver = function () {
+    startEndSection.style.display = "block";
+    cardTitle.innerHTML = "All done!"
+    contentText.innerHTML= "Your Score is:"
+    qAndA.textContent = score;
+    endOfQuiz = true;
+    return
+    }
+    
