@@ -14,12 +14,10 @@
       <div id="nav-timer">
         <h4>Timer</h4>
         <p id="timer"></p>
-        <h4>Score</h4>
-        <p id="score"></p>
       </div>
     </nav>
-    <!-- Main question and answer section -->
 
+    <!-- Main question and answer section -->
     <div id="main-content">
       <!-- Start Page -->
       <main class="question-card">
@@ -28,13 +26,15 @@
           <p id="content-card-section">
             Try to answer the following code-related questions within the time limit. Keep in mind incorrect answers will penalize your time by 5 seconds! Click Start to begin.
           </p>
+          <!-- Initial text box and submit button when game is over -->
+         <div id="user-submit-initials">
+            <label for="initial-box">Enter Initials: </label>
+            <input type="text" name="Initials" id="initial-box">
+            <input type="submit" value="Submit" id="submit">
+         </div>
         </div>
         <!-- Question and answers when button is clicked -->
         <div id="questionItem"></div>
-
-        <!-- End Result Page -->
-        <div>
-        </div>
       </main>
       <button id="start">Start</button>
       <div id="result"></div>

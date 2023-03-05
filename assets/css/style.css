@@ -23,13 +23,14 @@ nav > div {
     padding: 10px;
     font-size: 20px;
 }
-#high-scores{
-    color:  rgb(15, 15, 87);
-    font-size: 12px;
-    border: 1px solid rgb(15, 15, 87);
-    border-radius: 5px;
-    background-color: aliceblue;
 
+#start-and-end > *{
+margin: 20px;
+}
+/* Submit and Enter Initials div */
+#user-submit-initials{
+    display: none;
+    margin: 10px;
 }
 /* Main-content (questions and choices) */
 #main-content{
@@ -47,16 +48,19 @@ nav > div {
 }
 
 /* Answer Choices */
-#answer-choices, #next-btn{
+#answer-choices{
     visibility: hidden ;
 }
 
 #start-page > * {
     padding: 10px;
 }
+#content-card-section{
+    font-size: 16px;
+}
 
  /* Start Button */
- #start, #next-btn{
+ #start, #submit{
     color:  rgb(15, 15, 87);
     display: block;
     margin: 30px auto;
@@ -67,7 +71,18 @@ nav > div {
     border-radius: 2em;
     background-color: aliceblue;
  }
+ /* User Initial text Bov */
+ #initial-box{
+    background-color: aliceblue;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid rgb(119, 119, 121);
+    border-radius: 4px;
+    box-sizing: border-box;
+ }
 
+ /* Questions */
  #questionItem{
     display: flex;
     flex-direction: column;

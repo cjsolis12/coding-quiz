@@ -3,10 +3,10 @@ var timerContainer = document.getElementById('timer')
 var startEndSection = document.getElementById('start-and-end')
 var cardTitle = document.getElementById('card-title')
 var contentText = document.getElementById('content-card-section')
+var userInput = document.getElementById("user-submit-initials")
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
 var correctIncorrectAnswers = document.getElementById('result')
-var nextButton = document.getElementById('next-btn')
 var nextQuestion = 0;
 var score = 0;
 // Start timer at
@@ -22,7 +22,7 @@ var questionsArray = [
     { 
         question: "Inside the HTML document, where do you place the JavaScript code? ",
         choices: ["in the <footer> element", "Inside the <script> tag", "inside the title tag", "You don't have to add any tag for Javascript" ],
-        answer: "Inside the <script> tag", 
+        answer:"Inside the <script> tag", 
     },
     { 
         question: "Which of the following methods is used to access HTML elements using Javascript? ",
@@ -100,11 +100,17 @@ btn.addEventListener('click', function(){
 
 // End Result Page when Quiz is over or time is out
 var quizOver = function () {
-    startEndSection.style.display = "block";
     cardTitle.innerHTML = "All done!"
-    contentText.innerHTML= "Your Score is:"
-    qAndA.textContent = score;
+    qAndA.style.display = "none"
+    contentText.textContent = `Your Score is: ${score} `;
+    startEndSection.style.display = "block";
+    userInput.style.display = "block"
+    saveInitials()
     endOfQuiz = true;
     return
     }
     
+    var saveInitials = function myFunction() {
+        
+    }
+        
