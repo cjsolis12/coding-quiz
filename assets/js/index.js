@@ -7,6 +7,7 @@ var userInput = document.getElementById("user-submit-initials")
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
 var correctIncorrectAnswers = document.getElementById('result')
+var submit = document.getElementById('submit')
 var nextQuestion = 0;
 var score = 0;
 // Start timer at
@@ -105,12 +106,18 @@ var quizOver = function () {
     contentText.textContent = `Your Score is: ${score} `;
     startEndSection.style.display = "block";
     userInput.style.display = "block"
-    saveInitials()
     endOfQuiz = true;
     return
     }
     
-    var saveInitials = function myFunction() {
-        
-    }
-        
+// When submit button is clicked, initials in input textbox are saved to local storage
+    submit.addEventListener('click', function(event){
+        event.preventDefault();
+
+        var initialInputBox = document.getElementById('initial-box').value;
+        localStorage.setItem("initials", initialInputBox);
+       
+
+        })
+
+   
