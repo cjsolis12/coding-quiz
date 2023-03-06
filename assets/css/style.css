@@ -37,7 +37,7 @@ margin: 20px;
     margin: 50px 100px;
 }
 
-.question-card{
+.question-card, #high-scores-board{
     background-color: #fff;
     border: 1px solid #eceff1;
     border-radius: 8px;
@@ -48,8 +48,8 @@ margin: 20px;
 }
 
 /* Answer Choices */
-#answer-choices{
-    visibility: hidden ;
+#answer-choices, #high-scores-board{
+    display: none;
 }
 
 #start-page > * {

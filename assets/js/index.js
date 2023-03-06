@@ -117,7 +117,9 @@ var quizOver = function () {
         var initialInputBox = document.getElementById('initial-box').value;
         localStorage.setItem("initials", initialInputBox);
        
-
+        startEndSection.style.display = "none";
+        var highScoresBoard = document.getElementById('high-scores-board')
+        highScoresBoard.style.display= "block"
         })
 
    
