@@ -1,15 +1,17 @@
-var btn = document.getElementById('start')
-var timerContainer = document.getElementById('timer')
-var startEndSection = document.getElementById('start-and-end')
-var cardTitle = document.getElementById('card-title')
+var btn = document.getElementById('start')   //Start button to start quiz
+var timerContainer = document.getElementById('timer') //Timer in Navbar for setInterval
+var startEndSection = document.getElementById('start-and-end') // container for start page with instructions and when quiz is over
+var cardTitle = document.getElementById('card-title') //H2 title (Coding Quiz Challenge)(All done!)
 var contentText = document.getElementById('content-card-section')
 var userInput = document.getElementById("user-submit-initials")
 var qAndA = document.getElementById('questionItem')
 var answersDisplayed= document.getElementById('choices')
-var correctIncorrectAnswers = document.getElementById('result')
+var highScoreList = document.querySelector('#highscore-list') //High Scores Board UL
 var submit = document.getElementById('submit')
 var nextQuestion = 0;
 var score = 0;
+var highScores = [];
+var score
 // Start timer at
 var count = 60;
 
@@ -22,8 +24,8 @@ var questionsArray = [
     },
     { 
         question: "Inside the HTML document, where do you place the JavaScript code? ",
-        choices: ["in the <footer> element", "Inside the <script> tag", "inside the title tag", "You don't have to add any tag for Javascript" ],
-        answer:"Inside the <script> tag", 
+        choices: ["in the <footer> element", "Inside the script tag ", "inside the title tag", "You don't have to add any tag for Javascript" ],
+        answer:"Inside the script tag ", 
     },
     { 
         question: "Which of the following methods is used to access HTML elements using Javascript? ",
@@ -58,12 +60,12 @@ var createQuestionsAndAnswers = function(questionIndex){
         for(let i = 0; i < currentChoices.length; i++){
             let answerBtns = document.createElement('button');
             answerBtns.id = "answer-buttons"
-            answerBtns.textContent = currentChoices[i]
+            answerBtns.innerHTML = currentChoices[i]
             qAndA.appendChild(answerBtns);
 
             answerBtns.addEventListener('click', function (event){
-                console.log(event.target.innerHTML)
-                if(event.target.innerHTML === currentQuestion.answer){
+                console.log(event)
+                if(event.target.textContent == currentQuestion.answer){
                     answerBtns.style.background = "#c6f7ba"
                     score += 20;
                  }else{
@@ -120,6 +122,32 @@ var quizOver = function () {
         startEndSection.style.display = "none";
         var highScoresBoard = document.getElementById('high-scores-board')
         highScoresBoard.style.display= "block"
+        setUserHighScores();
         })
 
-   
+   var setUserHighScores = function(){
+    var storedScores = JSON.parse(localStorage.getItem("initials"))
+    if(storedScores !== null){
+        highScores = storedScores;
+
+        renderHighScores();
+    }
+   }
+
+   var renderHighScores = function() {
+    // Clear todoList element and update todoCountSpan
+
+    // Render a new li for each todo
+    for (var i = 0; i < todos.length; i++) {
+    score = highScores[i];
+  
+      var li = document.createElement("li");
+      li.textContent = score;
+  
+      var button = document.createElement("button");
+      button.textContent = score;
+  
+      li.appendChild(button);
+      highScoreList.appendChild(li);
+    }
+  }
