@@ -132,29 +132,26 @@ var quizOver = function () {
             initial: userInitial.value,
             score: score,
         };
-        localStorage.setItem("initials", JSON.stringify(userData));
+        highScores.push(userData)
+        localStorage.setItem("initials", JSON.stringify(highScores));
+
+        setUserHighScores();
     }
 
    var setUserHighScores = function(){
-        var storedScores = JSON.parse(localStorage.getItem("initials"))
-        if(storedScores !== null){
-        highScores.push (storedScores);
-        console.log(highScores)
-        // renderHighScores();
-    }
+    let ol = document.createElement('ol')
+    startEndSection.replaceChild(ol, contentText)
+        highScores = JSON.parse(localStorage.getItem("initials")) || [];
+        
+            
+        for (var i = 0; i < highScores.length; i++) {
+            var userObject = highScores[i];
+            console.log(userObject)
+            var li = document.createElement("li");
+            li.textContent = userObject.initial + " - " + userObject.score;
+
+            ol.appendChild(li)
+            }
+
    }
 
-   var renderHighScores = function() {
-    // Clear highscoreList element
-    highScoreList.innerHTML = "";
-
-    // Render a new li for each todo
-    for (var i = 0; i < highScores.length; i++) {
-    score = highScores[i];
-  
-      var li = document.createElement("li");
-      li.textContent = highScores[i];
-
-      highScoreList.appendChild(li);
-    }
-  }
