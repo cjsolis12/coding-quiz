@@ -2,16 +2,16 @@ var btn = document.getElementById('start')   //Start button to start quiz
 var timerContainer = document.getElementById('timer') //Timer in Navbar for setInterval
 var startEndSection = document.getElementById('start-and-end') // container for start page with instructions and when quiz is over
 var cardTitle = document.getElementById('card-title') //H2 title (Coding Quiz Challenge)(All done!)
-var contentText = document.getElementById('content-card-section')
-var userInput = document.getElementById("user-submit-initials")
-var qAndA = document.getElementById('questionItem')
-var answersDisplayed= document.getElementById('choices')
+var contentText = document.getElementById('content-card-section') //p tag in the start section
+var userInput = document.getElementById("user-submit-initials") // text box when user enters initials
+var qAndA = document.getElementById('questionItem') //hidden div that appears when questions are rendered
 var highScoreList = document.querySelector('#highscore-list') //High Scores Board UL
-var submit = document.getElementById('submit')
+var submit = document.getElementById('submit') //Submit button for user initials
+
 var nextQuestion = 0;
 var score = 0;
 var highScores = [];
-var score
+
 // Start timer at
 var count = 60;
 
@@ -64,7 +64,6 @@ var createQuestionsAndAnswers = function(questionIndex){
             qAndA.appendChild(answerBtns);
 
             answerBtns.addEventListener('click', function (event){
-                console.log(event)
                 if(event.target.textContent == currentQuestion.answer){
                     answerBtns.style.background = "#c6f7ba"
                     score += 20;
@@ -115,19 +114,22 @@ var quizOver = function () {
 // When submit button is clicked, initials in input textbox are saved to local storage
     submit.addEventListener('click', function(event){
         event.preventDefault();
-
+        userInput.style.display = "none"
+        
+        // value of user Initials is set to initialInputBox and stored in localStorage
         var initialInputBox = document.getElementById('initial-box').value;
         localStorage.setItem("initials", initialInputBox);
        
-        startEndSection.style.display = "none";
-        var highScoresBoard = document.getElementById('high-scores-board')
-        highScoresBoard.style.display= "block"
+        //Card Title and content is change for High scores
+        cardTitle.innerHTML = "High Scores"
+        contentText.textContent = highScoreList
+        
         setUserHighScores();
         })
 
    var setUserHighScores = function(){
-    var storedScores = JSON.parse(localStorage.getItem("initials"))
-    if(storedScores !== null){
+        var storedScores = JSON.parse(localStorage.getItem("initials"))
+        if(storedScores !== null){
         highScores = storedScores;
 
         renderHighScores();
@@ -148,6 +150,6 @@ var quizOver = function () {
       button.textContent = score;
   
       li.appendChild(button);
-      highScoreList.appendChild(li);
+      contentText.appendChild(li);
     }
   }
