@@ -3,7 +3,8 @@ var timerContainer = document.getElementById('timer') //Timer in Navbar for setI
 var startEndSection = document.getElementById('start-and-end') // container for start page with instructions and when quiz is over
 var cardTitle = document.getElementById('card-title') //H2 title (Coding Quiz Challenge)(All done!)
 var contentText = document.getElementById('content-card-section') //p tag in the start section
-var userInput = document.getElementById("user-submit-initials") // text box when user enters initials
+var userInput = document.getElementById("user-submit-initials") // container when user enters initials
+var userInitial = document.querySelector("#initial-box")
 var qAndA = document.getElementById('questionItem') //hidden div that appears when questions are rendered
 var highScoreList = document.querySelector('#highscore-list') //High Scores Board UL
 var submit = document.getElementById('submit') //Submit button for user initials
@@ -111,45 +112,49 @@ var quizOver = function () {
     return
     }
     
+   
+
 // When submit button is clicked, initials in input textbox are saved to local storage
     submit.addEventListener('click', function(event){
         event.preventDefault();
         userInput.style.display = "none"
-        
-        // value of user Initials is set to initialInputBox and stored in localStorage
-        var initialInputBox = document.getElementById('initial-box').value;
-        localStorage.setItem("initials", initialInputBox);
        
         //Card Title and content is change for High scores
         cardTitle.innerHTML = "High Scores"
-        contentText.textContent = highScoreList
-        
+        // contentText.appendChild = highScoreList
+        saveLastHighScore()
         setUserHighScores();
+
         })
+// value of user Initials is set to initialInputBox and stored in localStorage
+    var saveLastHighScore = function(){
+        var userData = {
+            initial: userInitial.value,
+            score: score,
+        };
+        localStorage.setItem("initials", JSON.stringify(userData));
+    }
 
    var setUserHighScores = function(){
         var storedScores = JSON.parse(localStorage.getItem("initials"))
         if(storedScores !== null){
-        highScores = storedScores;
-
-        renderHighScores();
+        highScores.push (storedScores);
+        console.log(highScores)
+        // renderHighScores();
     }
    }
 
    var renderHighScores = function() {
-    // Clear todoList element and update todoCountSpan
+    // Clear highscoreList element
+    highScoreList.innerHTML = "";
 
     // Render a new li for each todo
-    for (var i = 0; i < todos.length; i++) {
+    for (var i = 0; i < highScores.length; i++) {
     score = highScores[i];
   
       var li = document.createElement("li");
-      li.textContent = score;
-  
-      var button = document.createElement("button");
-      button.textContent = score;
-  
-      li.appendChild(button);
-      contentText.appendChild(li);
+      li.textContent = highScores[i];
+
+      highScoreList.appendChild(li);
     }
   }
