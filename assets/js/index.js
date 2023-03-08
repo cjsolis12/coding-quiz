@@ -90,6 +90,7 @@ var timer = function (){
         timerContainer.textContent = count--;
         if(count < 0 || endOfQuiz){
             clearInterval(timeInterval)
+            quizOver();
         }
     }, 1000) }
 
