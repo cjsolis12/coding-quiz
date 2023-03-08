@@ -112,8 +112,6 @@ var quizOver = function () {
     return
     }
     
-   
-
 // When submit button is clicked, initials in input textbox are saved to local storage
     submit.addEventListener('click', function(event){
         event.preventDefault();

@@ -37,7 +37,7 @@ margin: 20px;
     margin: 50px 100px;
 }
 
-.question-card, #high-scores-board{
+.question-card{
     background-color: #fff;
     border: 1px solid #eceff1;
     border-radius: 8px;
