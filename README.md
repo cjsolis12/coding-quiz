@@ -11,7 +11,7 @@ This quiz app is a timed, 5 question quiz. It subtracts 5 seconds when the quest
 
 ![Wepage screenshot](assets/images/codingQuizScreenshot.png)
 
-
+https://cjsolis12.github.io/coding-quiz/
 
 ## Credits
 - TAs Andrea Presto and Zachariah Shone
