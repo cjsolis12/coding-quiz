@@ -10,30 +10,34 @@
   <body>
     <!-- top row for High score and timer -->
     <nav>
-     <a href="highscore.html"><button id="high-scores">View High Scores</button></a> 
+      <a href="highscore.html"><button id="high-scores">View High Scores</button></a>
       <div id="nav-timer">
         <h4>Timer</h4>
         <p id="timer"></p>
       </div>
     </nav>
-
     <!-- Main question and answer section -->
     <div id="main-content">
-    <!-- Start Page -->
+      <!-- Start Page -->
       <main class="question-card">
         <div id="start-and-end">
           <h2 id="card-title">Coding Quiz Challenge</h2>
           <p id="content-card-section">
             Try to answer the following code-related questions within the time limit. Keep in mind incorrect answers will penalize your time by 5 seconds! Click Start to begin.
           </p>
-    <!-- Initial text box and submit button when game is over -->
-         <div id="user-submit-initials">
+          <!-- Initial text box and submit button when game is over -->
+          <div id="user-submit-initials">
             <label for="initial-box">Enter Initials: </label>
-            <input type="text" name="Initials" id="initial-box" placeholder=" Your Initals">
-            <input type="submit" value="Submit" id="submit">
-         </div>
+            <input
+              type="text"
+              name="Initials"
+              id="initial-box"
+              placeholder=" Your Initals"
+            />
+            <input type="submit" value="Submit" id="submit" />
+          </div>
         </div>
-    <!-- Question and answers when button is clicked -->
+        <!-- Question and answers when button is clicked -->
         <div id="questionItem"></div>
       </main>
       <button id="start">Start</button>

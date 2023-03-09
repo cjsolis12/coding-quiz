@@ -1,100 +1,101 @@
 /* Universal Selectors */
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    font-family: "Poppins", sans-serif;
-    letter-spacing: .5px;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins", sans-serif;
+  letter-spacing: 0.5px;
 }
 
 /* Whole screen */
-.whole-screen{
-    padding: 10px;
+.whole-screen {
+  padding: 10px;
 }
 
 /* Top Navbar */
 nav {
-    display: flex;
-    justify-content: space-between;
-    margin: 5px 15px;
-    padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  margin: 5px 15px;
+  padding: 10px;
 }
 nav > div {
-    padding: 10px;
-    font-size: 20px;
+  padding: 10px;
+  font-size: 20px;
 }
 
-#start-and-end > *{
-margin: 20px;
+#start-and-end > * {
+  margin: 20px;
 }
 /* Submit and Enter Initials div */
-#user-submit-initials{
-    display: none;
-    margin: 10px;
+#user-submit-initials {
+  display: none;
+  margin: 10px;
 }
 /* Main-content (questions and choices) */
-#main-content{
-    margin: 50px 100px;
+#main-content {
+  margin: 50px 100px;
 }
 
-.question-card{
-    background-color: #fff;
-    border: 1px solid #eceff1;
-    border-radius: 8px;
-    box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
+.question-card {
+  background-color: #fff;
+  border: 1px solid #eceff1;
+  border-radius: 8px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0 1px 2px 0,
     rgba(60, 64, 67, 0.15) 0 1px 3px 1px;
-    padding: 20px;
-    text-align: center;
+  padding: 20px;
+  text-align: center;
 }
 
 /* Answer Choices */
-#answer-choices, #high-scores-board{
-    display: none;
+#answer-choices, #high-scores-board {
+  display: none;
 }
 
 #start-page > * {
-    padding: 10px;
+  padding: 10px;
 }
-#content-card-section{
-    font-size: 16px;
+#content-card-section {
+  font-size: 16px;
 }
 
- /* Start Button */
- #start, #submit{
-    color:  rgb(15, 15, 87);
-    display: block;
-    margin: 30px auto;
-    font-size: 1.2em;
-    padding: .5em 2em;
-    border: 2px solid rgb(15, 15, 87);
-    background-color: #ffffff;
-    border-radius: 2em;
-    background-color: aliceblue;
- }
- /* User Initial text Bov */
- #initial-box{
-    background-color: aliceblue;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid rgb(119, 119, 121);
-    border-radius: 4px;
-    box-sizing: border-box;
- }
+/* Start Button */
+#start, #submit, #high-scores {
+  color: rgb(15, 15, 87);
+  display: block;
+  margin: 30px auto;
+  font-size: 1.2em;
+  padding: 0.5em 2em;
+  border: 2px solid rgb(15, 15, 87);
+  background-color: #ffffff;
+  border-radius: 2em;
+  background-color: aliceblue;
+}
+/* User Initial text Bov */
+#initial-box {
+  background-color: aliceblue;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid rgb(119, 119, 121);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
 
- /* Questions */
- #questionItem{
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
- }
- #answer-buttons{
-    color:  rgb(15, 15, 87);
-    justify-content: flex-start;
-    margin: 10px 5px;
-    font-size: 1.2em;
-    padding: .5em;
-    border: 2px solid rgb(15, 15, 87);
-    background-color: rgb(235, 240, 243);
-    text-align: left;
- }
+/* Questions */
+#questionItem {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  font-size: 20px;
+}
+#answer-buttons {
+  color: rgb(15, 15, 87);
+  justify-content: flex-start;
+  margin: 10px 5px;
+  font-size: 1.2em;
+  padding: 0.5em;
+  border: 2px solid rgb(15, 15, 87);
+  background-color: rgb(235, 240, 243);
+  text-align: left;
+}

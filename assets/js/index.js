@@ -8,11 +8,9 @@ var userInitial = document.querySelector("#initial-box")
 var qAndA = document.getElementById('questionItem') //hidden div that appears when questions are rendered
 var highScoreList = document.querySelector('#highscore-list') //High Scores Board UL
 var submit = document.getElementById('submit') //Submit button for user initials
-
 var nextQuestion = 0;
 var score = 0;
-var highScores = [];
-
+var userObject
 // Start timer at
 var count = 60;
 
@@ -49,7 +47,7 @@ var questionsArray = [
 // Looping over each object to make each Question Property an h3.
 var endOfQuiz = false;
 var createQuestionsAndAnswers = function(questionIndex){
-        let title = document.createElement('h3')
+        let title = document.createElement('h2')
         
         qAndA.style.visibility = "visible";
         var currentQuestion = questionsArray[questionIndex]
@@ -63,7 +61,6 @@ var createQuestionsAndAnswers = function(questionIndex){
             answerBtns.id = "answer-buttons"
             answerBtns.innerHTML = currentChoices[i]
             qAndA.appendChild(answerBtns);
-
             answerBtns.addEventListener('click', function (event){
                 if(event.target.textContent == currentQuestion.answer){
                     answerBtns.style.background = "#c6f7ba"
@@ -111,46 +108,46 @@ var quizOver = function () {
     userInput.style.display = "block"
     endOfQuiz = true;
     return
-    }
+}
     
 // When submit button is clicked, initials in input textbox are saved to local storage
     submit.addEventListener('click', function(event){
         event.preventDefault();
         userInput.style.display = "none"
        
-        //Card Title and content is change for High scores
+    //Card Title and content is change for High scores
         cardTitle.innerHTML = "High Scores"
-        // contentText.appendChild = highScoreList
-        saveLastHighScore()
+    
+        saveLastHighScore();
         setUserHighScores();
+    })
 
-        })
-// value of user Initials is set to initialInputBox and stored in localStorage
-    var saveLastHighScore = function(){
-        var userData = {
-            initial: userInitial.value,
-            score: score,
-        };
-        highScores.push(userData)
-        localStorage.setItem("initials", JSON.stringify(highScores));
-
-        setUserHighScores();
-    }
-
-   var setUserHighScores = function(){
-    let ol = document.createElement('ol')
-    startEndSection.replaceChild(ol, contentText)
-        highScores = JSON.parse(localStorage.getItem("initials")) || [];
         
-            
-        for (var i = 0; i < highScores.length; i++) {
-            var userObject = highScores[i];
-            console.log(userObject)
-            var li = document.createElement("li");
-            li.textContent = userObject.initial + " - " + userObject.score;
+// value of user Initials is set to initialInputBox and stored in localStorage
+    
+    var saveLastHighScore = function(){
+        var initialValue = userInitial.value;
+        localStorage.setItem("userData", JSON.stringify({initialValue, score}));
+        }
 
-            ol.appendChild(li)
-            }
+    var highScores = [];
+    var setUserHighScores = function(){
+        let ol = document.createElement('ol')
+            startEndSection.replaceChild(ol, contentText)
+            var highScore = JSON.parse(localStorage.getItem("userData")) || [];
+            if(highScore){
+                highScores.push(highScore)}
+            for (var i = 0; i < highScores.length; i++) {
+                var li = document.createElement("li");
+                li.innerHTML = `${highScores[i].initialValue} - ${highScores[i].score} `;
+                ol.appendChild(li)
+                }
+            console.log(highScores)
+    }
+    
 
-   }
+    
+                    
+               
+           
 
