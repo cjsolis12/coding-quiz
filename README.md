@@ -9,11 +9,12 @@ This quiz app is a timed, 5 question quiz. It subtracts 5 seconds when the quest
 
 ## Usage
 
-![Wepage screenshot](Develop/images/password_generator_screenshot.png)
+![Wepage screenshot](assets/images/codingQuizScreenshot.png)
 
-https://cjsolis12.github.io/Password_Generator/
+https://cjsolis12.github.io/coding-quiz/
 
 ## Credits
 - TAs Andrea Presto and Zachariah Shone
-- https://dev.to/code_mystery/random-password-generator-using-javascript-6a
+- https://youtu.be/o3MF_JmQxYg
 - https://stackoverflow.com/
+- https://www.w3schools.com/html/html_links.asp
